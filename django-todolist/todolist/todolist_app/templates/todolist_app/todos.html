@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<p>welcome to {{currentpage}} page</p>
+<p>let's play the guessing game</p>
+<p> {{favnumber}} is the number you selected</p>
+<p> lets play..</p>
+{% if favnumber > selectednumber %}
+    <p>your number {{favnumber}} is bigger!</p>
+
+{% elif favnumber == selectednumber %}
+    <p>your number {{favnumber}} is the same i selected!</p>
+
+{% else %}
+    <p>your number {{favnumber}} is not bigger :(</p>
+{% endif %}
+
+<hr>
+
+<h1>Todos</h1>
+
+<ul>
+    {% for todo in todos %}
+        <li>Title: <a href="{% url 'single_todo' todo.id %}">{{todo.title}}</a> --- {{todo.description}}</li>
+        <li>Date: {{todo.date}}</li>
+        <br>
+    {% endfor %}
+</ul>
+
+<p>todo1</p>
+<p>todo2</p>
+
+{% endblock %}

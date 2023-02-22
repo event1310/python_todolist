@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    {% extends 'main.html' %}
+
+    {% block content %}
+        <p>{{todoObjs.title}}</p>
+        <p>{{todoObjs.date}}</p>
+        <p>{{todoObjs.description}}</p>
+    {% endblock %}
+</body>
+</html>
