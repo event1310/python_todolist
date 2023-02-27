@@ -7,9 +7,12 @@
     {% extends 'main.html' %}
 
     {% block content %}
-        <p>{{todoObjs.title}}</p>
-        <p>{{todoObjs.date}}</p>
-        <p>{{todoObjs.description}}</p>
+        <p>Title: {{todo.title}}</p>
+        <p>Due Date: {{todo.date}}</p>
+        <p>Description: {{todo.description}}</p>
+        {% for tag in todo.tags.all %}
+            <span>Tags: {{tag}}</span>
+        {% endfor %}
     {% endblock %}
 </body>
 </html>

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Todo
 
 todosList = [
     {
@@ -24,21 +25,15 @@ todosList = [
 
 
 def todos(request):
-    site = "todos"
-    selectednumber = 25
-    favnumber = 25
-
-    context = {"currensite": site, "favnumber": favnumber, "selectednumber": selectednumber, "todos": todosList}
+    todos = Todo.objects.all()
+    context = {"todos": todos}
 
     return render(request, 'todolist_app/todos.html', context)
 
 
 def single_todo(request, pk):
-    todoObj = None
-    for i in todosList:
-        if i['id'] == pk:
-            todoObj = i
-    return render(request, 'todolist_app/single-todo.html', {"todoObjs": todoObj})
+    todoObj = Todo.objects.get(id=pk)
+    return render(request, 'todolist_app/single-todo.html', {"todo": todoObj})
 
 
 
