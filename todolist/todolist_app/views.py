@@ -1,27 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Todo
-
-todosList = [
-    {
-        'id': '1',
-        'title': 'go to school',
-        'date': '22.02.2023',
-        'description': 'Go to school and educate myself'
-    },
-    {
-        'id': '2',
-        'title': 'buy tomatoes',
-        'date': '23.02.2023',
-        'description': 'Tomatoes approx 0.5kg'
-    },
-    {
-        'id': '3',
-        'title': 'run for 10 minutes',
-        'date': '24.02.2023',
-        'description': 'go for a quick run!'
-    },
-]
+from .forms import TodoForm
 
 
 def todos(request):
@@ -36,17 +16,9 @@ def single_todo(request, pk):
     return render(request, 'todolist_app/single-todo.html', {"todo": todoObj})
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+def create_todo(request):
+    form = TodoForm()
+    context = {'form': form}
+    return render(request, 'todolist_app/todo_form.html', context)
 
 
