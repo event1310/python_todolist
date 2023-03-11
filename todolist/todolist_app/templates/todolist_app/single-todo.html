@@ -7,12 +7,14 @@
     {% extends 'main.html' %}
 
     {% block content %}
-        <p>Title: {{todo.title}}</p>
-        <p>Due Date: {{todo.date}}</p>
-        <p>Description: {{todo.description}}</p>
-        {% for tag in todo.tags.all %}
-            <span>Tags: {{tag}}</span>
-        {% endfor %}
+
+    <p>Title: {{todo.title}}</p>
+    <img style="max-width: 20%;" src="{{todo.featured_image.url}}">
+    <p>Due Date: {{todo.date}}</p>
+    <p>Description: {{todo.description}}</p>
+    {% for tag in todo.tags.all %}
+        <span>Tags: {{tag}}</span>
+    {% endfor %}
     {% endblock %}
 </body>
 </html>

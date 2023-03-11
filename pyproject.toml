@@ -10,6 +10,8 @@ packages = [{include = "django_todolist"}]
 python = "^3.11"
 django = "^4.1.7"
 pytest = "^7.2.1"
+pillow = "^9.4.0"
+whitenoise = "^6.4.0"
 
 
 [build-system]

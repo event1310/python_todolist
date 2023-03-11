@@ -11,6 +11,8 @@
         <li>Title: <a href="{% url 'single_todo' todo.id %}">{{todo.title}}</a></li>
         <li>Date: {{todo.date}}</li>
         <li>Tags: {% for tag in todo.tags.all %}{{tag }} {% endfor %}</li>
+        <li><a href="{% url 'update_todo' todo.id %}">Edit</a></li>
+        <li><a href="{% url 'delete_todo' todo.id %}">Delete</a></li>
         <br>
     {% endfor %}
 </ul>

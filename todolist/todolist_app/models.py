@@ -3,6 +3,8 @@ import uuid
 class Todo(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     title = models.CharField(max_length=100)
+    featured_image = models.ImageField(
+        null=True, blank=True, default="default.jpg")
     date = models.DateTimeField()
     description = models.TextField(null=True, blank=True)
     tags = models.ManyToManyField('Tag', blank=True)
