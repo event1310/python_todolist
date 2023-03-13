@@ -9,6 +9,7 @@
 <ul>
     {% for todo in todos %}
         <li>Title: <a href="{% url 'single_todo' todo.id %}">{{todo.title}}</a></li>
+        <li>Owner: {{todo.owner}}</li>
         <li>Date: {{todo.date}}</li>
         <li>Tags: {% for tag in todo.tags.all %}{{tag }} {% endfor %}</li>
         <li><a href="{% url 'update_todo' todo.id %}">Edit</a></li>
