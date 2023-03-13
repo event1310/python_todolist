@@ -1,7 +1,10 @@
+import os
+
 from django.db import models
 import uuid
 import sys
-sys.path.append(".")
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from users.models import Profile
 class Todo(models.Model):
     owner = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.SET_NULL)

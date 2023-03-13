@@ -14,8 +14,10 @@
                 <div class="toggle-menu__lines"></div>
             </label>
             <ul class="header__menu">
-                <li class="header__menuItem"><a href="{% url 'create_todo' %}">Add Todo</a></li>
                 <li class="header__menuItem"><a href="{% url 'todos' %}">Todos</a></li>
+                <li class="header__menuItem"><a href="">My account</a></li>
+                <li class="header__menuItem"><a href="{% url 'create_todo' %}" class="btn btn--sub">Add Todo</a></li>
+                <li class="header__menuItem"><a href="" class="btn btn--sub">Login</a></li>
 
             </ul>
         </nav>

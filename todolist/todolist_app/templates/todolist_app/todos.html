@@ -3,19 +3,54 @@
 {% block content %}
 
 
+<!-- Main Section -->
+<main class="projects">
+<section class="hero-section text-center">
+  <div class="container container--narrow">
+    <div class="hero-section__box">
+      <h2>Search for <span>Todos</span></h2>
+    </div>
 
-<h1>Todos</h1>
+    <div class="hero-section__search">
+      <form class="form" action="#" method="get">
+        <div class="form__field">
+          <label for="formInput#search">Search By Todos </label>
+          <input class="input input--text" id="formInput#search" type="text" name="text"
+            placeholder="Search by Todo Title" />
+        </div>
 
-<ul>
-    {% for todo in todos %}
-        <li>Title: <a href="{% url 'single_todo' todo.id %}">{{todo.title}}</a></li>
-        <li>Owner: {{todo.owner}}</li>
-        <li>Date: {{todo.date}}</li>
-        <li>Tags: {% for tag in todo.tags.all %}{{tag }} {% endfor %}</li>
-        <li><a href="{% url 'update_todo' todo.id %}">Edit</a></li>
-        <li><a href="{% url 'delete_todo' todo.id %}">Delete</a></li>
-        <br>
-    {% endfor %}
-</ul>
+        <input class="btn btn--sub btn--lg" type="submit" value="Search" />
+      </form>
+    </div>
+  </div>
+</section>
+<!-- Search Result: DevList -->
+<section class="projectsList">
+  <div class="container">
+    <div class="grid grid--three">
+        {% for todo in todos %}
+      <div class="column">
+        <div class="card project">
+          <a href="{% url 'single_todo' todo.id %}" class="project">
+            <img class="project__thumbnail" src="{{ todo.featured_image.url }}" alt="project thumbnail" />
+            <div class="card__body">
+              <h3 class="project__title">{{todo.title}}</h3>
+              <p>Due Date: {{todo.date}}</p>
+              <p><a class="project__author" href="{% url 'single_todo' todo.id %}">By {{todo.owner.name}}</a></p>
+              <div class="project__tags">
+                  {% for tag in todo.tags.all %}
+                <span class="tag tag--pill tag--main">
+                  <small>{{tag}}</small>
+                </span>
+                  {% endfor %}
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+       {% endfor %}
+    </div>
+  </div>
+</section>
 
 {% endblock %}

@@ -13,7 +13,7 @@
     <p>Due Date: {{todo.date}}</p>
     <p>Description: {{todo.description}}</p>
     {% for tag in todo.tags.all %}
-        <span>Tags: {{tag}}</span>
+        <span>{{tag}}</span>
     {% endfor %}
     {% endblock %}
 </body>
